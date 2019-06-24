@@ -10,11 +10,11 @@ var MyButtonController = React.createClass({
     };
   },
 
-  componentDidMount: function() {
+  componentDidMount: function () {
     ListStore.addChangeListener(this._onChange);
   },
 
-  componentWillUnmount: function() {
+  componentWillUnmount: function () {
     ListStore.removeChangeListener(this._onChange);
   },
 
@@ -24,14 +24,21 @@ var MyButtonController = React.createClass({
     });
   },
 
+  //绑定Action到处理函数
   createNewItem: function (event) {
     ButtonActions.addNewItem('new item');
   },
 
-  render: function() {
+  deleteNewItem: function (event) {
+    ButtonActions.deleteNewItem();
+  },
+
+  //将数据和事件响应传入到子组件
+  render: function () {
     return <MyButton
       items={this.state.items}
       onClick={this.createNewItem}
+      onDeleteClick={this.deleteNewItem}
     />;
   }
 

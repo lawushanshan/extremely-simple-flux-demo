@@ -12,6 +12,9 @@ var ListStore = assign({}, EventEmitter.prototype, {
     this.items.push(text);
   },
 
+  deleteItemHandler: function(){
+    this.items.pop();
+  },
   emitChange: function () {
     this.emit('change');
   },

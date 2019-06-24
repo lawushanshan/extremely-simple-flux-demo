@@ -6,9 +6,11 @@ var MyButton = function(props) {
     return <li key={i}>{listItem}</li>;
   });
 
+  //绑定相关的信息到子组件，子组件触犯Action
   return <div>
     <ul>{itemHtml}</ul>
     <button onClick={props.onClick}>New Item</button>
+    <button onClick={props.onDeleteClick}>Delete Item</button>
   </div>;
 };
 
